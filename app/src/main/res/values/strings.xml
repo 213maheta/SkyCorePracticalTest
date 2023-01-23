@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SkyCorePracticalTest</string>
+    <string name="currently_open">Currently OPEN</string>
+    <string name="currently_closed">Currently CLOSED</string>
+</resources>

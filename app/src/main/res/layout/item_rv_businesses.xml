@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="business"
+            type="com.skycore.practicaltest.model.Businesses" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        app:cardUseCompatPadding="true"
+        android:elevation="@dimen/_5sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View
+                android:id="@+id/emptyView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_100sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <ImageView
+                android:id="@+id/businessImage"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvBusinessName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{business.name}"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="@dimen/_12ssp"
+                android:layout_marginStart="@dimen/_10sdp"
+                app:layout_constraintEnd_toStartOf="@id/tvRating"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@id/businessImage"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/tvBusinessAddress"
+                />
+
+            <TextView
+                android:id="@+id/tvBusinessAddress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintEnd_toEndOf="@id/tvBusinessName"
+                app:layout_constraintVertical_chainStyle="packed"
+                android:text="@{business.location.displayAddress.toString()}"
+                app:layout_constraintStart_toStartOf="@id/tvBusinessName"
+                app:layout_constraintTop_toBottomOf="@id/tvBusinessName"
+                app:layout_constraintBottom_toTopOf="@id/tvBusinessStatus"
+                />
+
+            <TextView
+                android:id="@+id/tvBusinessStatus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintEnd_toEndOf="@id/tvBusinessName"
+                app:layout_constraintVertical_chainStyle="packed"
+                android:text="@{business.isClosed()? @string/currently_closed : @string/currently_open}"
+                app:layout_constraintTop_toBottomOf="@id/tvBusinessAddress"
+                app:layout_constraintStart_toStartOf="@id/tvBusinessName"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <TextView
+                android:id="@+id/tvRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{business.rating.toString()}"
+                android:background="@drawable/bg_textview"
+                android:padding="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</layout>
